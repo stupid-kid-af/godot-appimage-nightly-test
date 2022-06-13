@@ -21,8 +21,8 @@ jobs:
 
     - name: Patch to include files
       run: |
-        wget github.com/stupid-kid-af/godot-nighly-builds/releases/download/${TAGNAME}/godot_binaries-times${TAGNAME}.zip 
-        unzip godot_binaries-times${TAGNAME}.zip
+        wget https://github.com/stupid-kid-af/godot-nighly-builds/releases/download/706/godot_binaries-times706.zip
+        unzip godot_binaries-times706.zip
         cd bin
         git clone https://github.com/stupid-kid-af/appimage
         cd appimage
