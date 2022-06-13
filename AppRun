@@ -31,7 +31,7 @@ export LD_LIBRARY_PATH="${APPDIR}/usr/lib:${LD_LIBRARY_PATH}"
 export XDG_DATA_DIRS="${APPDIR}"/usr/share/:"${XDG_DATA_DIRS}":/usr/share/gnome/:/usr/local/share/:/usr/share/
 export GSETTINGS_SCHEMA_DIR="${APPDIR}/usr/share/glib-2.0/schemas:${GSETTINGS_SCHEMA_DIR}"
 
-BIN="$APPDIR/Discord"
+BIN="$APPDIR/godot"
 
 if [ -z "$APPIMAGE_EXIT_AFTER_INSTALL" ] ; then
   trap atexit EXIT
@@ -50,35 +50,6 @@ atexit()
   fi
 }
 
-error()
-{
-  if [ -x /usr/bin/zenity ] ; then
-    LD_LIBRARY_PATH="" zenity --error --text "${1}" 2>/dev/null
-  elif [ -x /usr/bin/kdialog ] ; then
-    LD_LIBRARY_PATH="" kdialog --msgbox "${1}" 2>/dev/null
-  elif [ -x /usr/bin/Xdialog ] ; then
-    LD_LIBRARY_PATH="" Xdialog --msgbox "${1}" 2>/dev/null
-  else
-    echo "${1}"
-  fi
-  exit 1
-}
-
-yesno()
-{
-  TITLE=$1
-  TEXT=$2
-  if [ -x /usr/bin/zenity ] ; then
-    LD_LIBRARY_PATH="" zenity --question --title="$TITLE" --text="$TEXT" 2>/dev/null || exit 0
-  elif [ -x /usr/bin/kdialog ] ; then
-    LD_LIBRARY_PATH="" kdialog --title "$TITLE" --yesno "$TEXT" || exit 0
-  elif [ -x /usr/bin/Xdialog ] ; then
-    LD_LIBRARY_PATH="" Xdialog --title "$TITLE" --clear --yesno "$TEXT" 10 80 || exit 0
-  else
-    echo "zenity, kdialog, Xdialog missing. Skipping ${THIS}."
-    exit 0
-  fi
-}
 
 check_dep()
 {
