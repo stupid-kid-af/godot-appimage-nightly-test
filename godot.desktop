@@ -1,1 +1,7 @@
-
+[Desktop Entry]
+Name=Godot
+Exec=godot.linuxbsd.opt.tools.64.llvm
+Icon=Godot_icon
+Type=Application
+Categories=Utility;
+Name[en_IN]=Godot_v3.4.4-stable_mono_x11_64
