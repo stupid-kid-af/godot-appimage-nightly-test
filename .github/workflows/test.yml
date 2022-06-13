@@ -33,7 +33,7 @@ jobs:
         
         wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
         chmod +x *.AppImage
-        ./appimagetool-x86_64.AppImage appimage -n -u 'gh-releases-zsync|stupid-kid-af|godot-appimage-nightly|stable|Godot*.AppImage.zsync' Discord-$(cat Discord/resources/build_info.json | jq -r .version)-x86_64.AppImage
+        ./appimagetool-x86_64.AppImage appimage -n -u 'gh-releases-zsync|stupid-kid-af|godot-appimage-nightly|stable|Godot*.AppImage.zsync' Godot$(cat Discord/resources/build_info.json | jq -r .version)-x86_64.AppImage
         mkdir dist
         mv Godot*.AppImage dist/.
         mv *.zsync dist/.
